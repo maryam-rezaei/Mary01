@@ -1,13 +1,14 @@
 
 import requests
 import json
-import config as C
+import Config as C
 
-def CallAPI():
-    base_url= 'https://randomuser.me/api/'
-    parameters={'results':'3', 'page':'1'}
+#   Inventory Data from API
+def GetData():
+    Base_URL= C.URL
+    parameters = GetParameters()
     
-    response = requests.get(base_url, params=parameters)
+    response = requests.get(Base_URL, params=parameters)
     
     if response.status_code == 200:
         print("OK")
@@ -17,3 +18,11 @@ def CallAPI():
 
     data = response.json()
     return data
+
+#   Generate Parameters Json 
+def GetParameters():
+    Params = {}
+    for key, value in dict(C.PARAMS).items():
+        if value != 'NULL':
+            Params[key] = value
+    return Params

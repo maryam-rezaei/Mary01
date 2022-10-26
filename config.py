@@ -1,11 +1,11 @@
 # Random User API configuration
 
-ROWS='15'
-PAGES='1'
-SEED='abc'
+URL = 'https://randomuser.me/api/'
 
-# SQL Server configuration
-
-DB = 'SQL SERVER'
-SERVER_NAME = 'MARYAM-PC'
-DATABASE = 'mary01'
+# PUT NULL WHEN PARAMETER IS NOT NEEDED
+PARAMS = {
+    'results': "800",
+    'page': '1',
+    'seed': 'NULL',
+    'inc': 'gender, name, location, dob, nat'
+}

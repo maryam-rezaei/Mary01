@@ -1,7 +1,7 @@
 import API
 import SQL
 
-print("MAIN")
-data_main=API.CallApi()
+API_Data = API.GetData()
 
-
+for row in API_Data["results"]:
+    SQL.InsertRowToDB(row)
