@@ -17,7 +17,7 @@ def SqlConnect():
         'Server=MARYAM-PC;'
         'Database=Mary01;'
         'UID=Mary;'
-        'PWD=M@ryM@ryM@ry;'
+        'PWD=3cWjS7V95299CYQlIZ3R#YA7;'
         'Trusted_Connection=no;'
     )
     cursor = conn.cursor()
