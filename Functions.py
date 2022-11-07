@@ -12,3 +12,16 @@ def GetNatXLSX():
     except IOError:
         print("Excel file does not exist.")
         exit(0)
+
+def GetNatCount():
+    NatCount = {}
+    XLS_File = pd.read_excel(C.XLSX_PATH)
+    Nat = XLS_File['nationality'].tolist()
+    Count = XLS_File['count'].tolist()
+
+    for row in range (0, len(Nat)):
+        if str(Count[row]).isnumeric():
+            NatCount[Nat[row]] = Count[row]
+        else:
+            NatCount[Nat[row]] = '1'
+    return NatCount

@@ -1,7 +1,10 @@
 import API
 import SQL
+import Functions as F
 
-API_Data = API.GetData()
+NatCount = F.GetNatCount()
 
-for row in API_Data["results"]:
-    SQL.InsertRowToDB(row)
+for nat, count in NatCount.items():
+    API_Data = API.GetData(nat, count)
+    for row in API_Data["results"]:
+        SQL.InsertRowToDB(row)

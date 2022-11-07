@@ -5,16 +5,17 @@ import Config as C
 import Functions as F
 
 #   Inventory Data from API
-def GetData():
+def GetData(nat, count):
     Base_URL= 'https://randomuser.me/api/'
     parameters = GetParameters()
-    parameters['nat'] = F.GetNatXLSX()    
+    parameters['nat'] = nat
+    parameters['results'] = count    
     response = requests.get(Base_URL, params=parameters)
     
     if response.status_code == 200:
-        print("OK")
+        print(nat, "- OK")
     else:
-        print("ERROR")
+        print(nat, "- ERROR")
         exit(0)
 
     data = response.json()

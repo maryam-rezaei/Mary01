@@ -1,6 +1,5 @@
 # PUT NULL WHEN PARAMETER IS NOT NEEDED
 PARAMS = {
-    'results': "10",
     'page': '1',
     'seed': 'NULL',
     'inc': 'gender, name, location, dob, nat'
