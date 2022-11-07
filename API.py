@@ -2,12 +2,13 @@
 import requests
 import json
 import Config as C
+import Functions as F
 
 #   Inventory Data from API
 def GetData():
-    Base_URL= C.URL
+    Base_URL= 'https://randomuser.me/api/'
     parameters = GetParameters()
-    
+    parameters['nat'] = F.GetNatXLSX()    
     response = requests.get(Base_URL, params=parameters)
     
     if response.status_code == 200:
@@ -22,6 +23,7 @@ def GetData():
 #   Generate Parameters Json 
 def GetParameters():
     Params = {}
+    #Params['nat'] = F.GetNationality()
     for key, value in dict(C.PARAMS).items():
         if value != 'NULL':
             Params[key] = value
